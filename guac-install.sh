@@ -1257,6 +1257,11 @@ finishguac
 finishguac () {
 s_echo "y" "${Bold}Setup Guacamole"
 
+# Install TOTP Extension
+wget https://raw.githubusercontent.com/miketoupin/guacamole-install-rhel/master/guacamole-auth-totp-{GUAC_VER}.tar.gz
+tar -xzf guacamole-auth-totp-${GUAC_VER}.tar.gz
+cp guacamole-auth-totp-${GUAC_VER}/guacamole-auth-totp-${GUAC_VER}.jar /etc/guacamole/
+
 # Generate Guacamole Configuration File
 { echo "# Hostname and port of guacamole proxy
 guacd-hostname: localhost
